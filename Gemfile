@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'haml-rails'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
 gem 'rails', '4.0.0.rc1'
