@@ -25,11 +25,12 @@ group :development do
 end
 
 group :test do
+  gem 'awesome_print', :require => 'ap'
+  gem 'capybara'
   gem 'factory_girl'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
-  gem 'awesome_print', :require => 'ap'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 gem 'less-rails'
