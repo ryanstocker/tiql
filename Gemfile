@@ -5,9 +5,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 gem 'jbuilder', '~> 1.0.1'
 gem 'jquery-rails'
-gem 'less-rails'
 gem 'rails', '4.0.0.rc1'
-gem 'sass-rails', '~> 4.0.0.rc1'
+#gem 'sass-rails', '~> 4.0.0.rc1'
 gem 'sqlite3'
 gem 'therubyracer', platforms: :ruby
 gem 'turbolinks'
@@ -33,6 +32,5 @@ group :test do
   gem 'rspec-rails'
 end
 
-group :assets do
-  gem 'twitter-bootstrap-rails'
-end
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
