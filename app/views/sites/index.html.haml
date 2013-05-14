@@ -1,0 +1,11 @@
+%h1 Sites
+
+%table
+  %thead
+    %th Name
+    %th Status
+  %tbody
+    %tr
+      - @sites.each do |s|
+        %td= s.name
+        %td
