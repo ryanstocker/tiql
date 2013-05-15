@@ -4,7 +4,7 @@ describe "Sites Authentication", :type => :request do
   it_should_behave_like("accessible by login only", :sites_path)
 end
 
-describe "Sites Management" do
+describe "Creating a Site" do
   let(:user) { create(:user) }
 
   before { sign_in user }
@@ -22,5 +22,14 @@ describe "Sites Management" do
     click_button 'Create Site'
     current_path.should == sites_path
     page.should have_content 'successfully created'
+  end
+end
+
+describe "Editing a Site" do
+  let!(:site) { create(:site) }
+
+  it "should have a edit action" do
+    visit edit_site_path(site)
+    find_field('site[endpoint]').value.should == site.endpoint
   end
 end

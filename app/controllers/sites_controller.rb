@@ -19,11 +19,16 @@ class SitesController < ApplicationController
   end
 
   def edit
-
+    @site = Site.find(params[:id])
   end
 
   def update
-
+    @site = Site.find(params[:id])
+    if @site.update_attributes(site_params)
+      redirect_to sites_path, :notice => 'Site updated successfully'
+    else
+      render :new
+    end
   end
 
   private
