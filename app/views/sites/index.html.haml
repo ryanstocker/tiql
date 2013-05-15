@@ -1,11 +1,15 @@
 %h1 Sites
 
-%table
+%table.table
   %thead
     %th Endpoint
+    %th Last Checked
     %th Status
+    %th Response Time (ms)
   %tbody
-    %tr
-      - @sites.each do |s|
+    - @sites.each do |s|
+      %tr
         %td= s.endpoint
-        %td
+        %td= s.probes.last.created_at.strftime("%a, %b %e at %l:%M%p") if s.probes.any?
+        %td= status_helper(s.probes.last.status) if s.probes.any?
+        %td= response_time_helper(s.probes.last.response_time) if s.probes.any?
