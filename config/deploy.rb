@@ -1,5 +1,4 @@
 require 'bundler/capistrano'
-require 'delayed/recipes'
 require 'rvm/capistrano'
 
 set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"").gsub(/-p\d+/,"")
@@ -12,7 +11,7 @@ set :application, "tiql"
 set :deploy_to, "/var/www/apps/#{application}"
 
 set :scm, :git
-set :repository, "git@github.com:ASCTech/tiql.git"
+set :repository, "git@github.com:ryanstocker/tiql.git"
 set :branch, "master"
 set :branch, $1 if `git branch` =~ /\* (\S+)\s/m
 set :deploy_via, :remote_cache
