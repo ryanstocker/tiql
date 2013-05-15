@@ -14,9 +14,10 @@ class Site < ActiveRecord::Base
         req = Net::HTTP::Head.new(uri.path)
         t = Time.now
         response = http.request(req)
-        t = Time.now - t
-        is_event = (response.code != Site.probes.last.status)
-        Probe.create!(site_id: site.id, status: response.code, response_time: t, is_event: is_event)
+        response_time = Time.now - t
+        is_event = (response.code != site.probes.last.status)
+        site.probes.build(status: response.code, response_time: response_time, is_event: is_event)
+        site.save
       end
 
     end
