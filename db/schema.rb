@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130514182942) do
+ActiveRecord::Schema.define(version: 20130515185344) do
 
   create_table "probes", force: true do |t|
     t.integer  "site_id"
     t.integer  "status"
-    t.integer  "response_time"
+    t.float    "response_time"
     t.datetime "probed_at"
     t.boolean  "is_event"
     t.datetime "created_at"

@@ -15,7 +15,7 @@ class Site < ActiveRecord::Base
         t = Time.now
         response = http.request(req)
         response_time = Time.now - t
-        is_event = (response.code != site.probes.last.status)
+        is_event = site.probes.any? ? (response.code != site.probes.last.status) : false
         site.probes.build(status: response.code, response_time: response_time, is_event: is_event)
         site.save
       end
