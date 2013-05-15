@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+require "whenever/capistrano"
 require 'rvm/capistrano'
 
 set :rvm_ruby_string, ENV['GEM_HOME'].gsub(/.*\//,"").gsub(/-p\d+/,"")
