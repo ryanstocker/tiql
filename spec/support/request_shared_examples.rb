@@ -1,4 +1,4 @@
-shared_examples "accessible by login" do |url|
+shared_examples "accessible by login only" do |url|
   let(:url_path) { send(url) }
   let(:user) { create(:user) }
 

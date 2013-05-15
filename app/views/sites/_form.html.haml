@@ -1,0 +1,16 @@
+= form_for @site, :class => 'form-horizontal' do |f|
+  .control-group
+    = f.label :endpoint
+    .controls
+      = f.text_field :endpoint
+  .control-group
+    = f.label :frequency
+    .controls
+      = f.text_field :frequency
+  .control-group
+    = f.label :enabled
+    .controls
+      = f.check_box :enabled
+  .control-group
+    .controls
+      = f.submit class: 'btn'
