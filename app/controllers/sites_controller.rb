@@ -25,7 +25,7 @@ class SitesController < ApplicationController
   def update
     @site = Site.find(params[:id])
     if @site.update_attributes(site_params)
-      redirect_to sites_path, :notice => 'Site updated successfully'
+      redirect_to sites_path, :notice => 'Site successfully updated'
     else
       render :new
     end

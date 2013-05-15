@@ -29,10 +29,30 @@ describe "Editing a Site" do
   let!(:site) { create(:site) }
   let(:user) { create(:user) }
 
-  before { sign_in user }
+  before do
+    sign_in user
+    visit edit_site_path(site)
+  end
 
   it "should have a edit action" do
-    visit edit_site_path(site)
     find_field('site[endpoint]').value.should == site.endpoint
+    find_field('site[frequency]').value.should == site.frequency.to_s
+    find_field('site[enabled]').should be_checked
+  end
+
+  it "should update successfully" do
+    edit_values = { endpoint: "http://newfoo.example.com", frequency: "10", enabled: false }
+    fill_in 'site[endpoint]', :with => edit_values[:endpoint]
+    fill_in 'site[frequency]', :with => edit_values[:frequency]
+    uncheck 'site_enabled'
+    click_button 'Update Site'
+    current_path.should == sites_path
+    page.should have_content 'successfully updated'
+
+    # check the values
+    visit edit_site_path(site)
+    find_field('site[endpoint]').value.should == edit_values[:endpoint]
+    find_field('site[frequency]').value.should == edit_values[:frequency]
+    find_field('site[enabled]').should_not be_checked
   end
 end

@@ -7,7 +7,7 @@ FactoryGirl.define do
 
   factory :site do
     endpoint "http://foo.example.com"
-    frequency 5
+    frequency "5"
     enabled true
   end
 end
