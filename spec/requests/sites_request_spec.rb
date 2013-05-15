@@ -27,6 +27,9 @@ end
 
 describe "Editing a Site" do
   let!(:site) { create(:site) }
+  let(:user) { create(:user) }
+
+  before { sign_in user }
 
   it "should have a edit action" do
     visit edit_site_path(site)
